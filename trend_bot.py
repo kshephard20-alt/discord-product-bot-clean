@@ -169,63 +169,119 @@ def generate_product(niche):
 
 def create_embed(niche,data):
 
-    hook_examples=[
-    f"POV: This fixed my biggest problem instantly",
-    f"POV: I wish I found this sooner",
-    f"POV: This made everything easier",
-    f"POV: This changed my daily routine"
+    divider = "━━━━━━━━━━━━━━━━━━━━━━"
+
+    hook_examples = [
+        "POV: This fixed my biggest problem instantly",
+        "POV: I wish I found this sooner",
+        "POV: This made everything easier",
+        "POV: This changed everything",
+        "POV: This solved my daily frustration"
     ]
 
-    embed=discord.Embed(
-    title="🔥 WINNING PRODUCT REPORT",
-    color=RED)
+    embed = discord.Embed(
+        title=f"{divider}\n        🔥 WINNING PRODUCT REPORT\n{divider}",
+        color=RED
+    )
+
+    # Product Info
+    embed.add_field(
+        name="📦 Product",
+        value=data['product'],
+        inline=False
+    )
 
     embed.add_field(
-    name="Product",
-    value=f"**{data['product']}**",
-    inline=False)
+        name="🏷️ Niche",
+        value=niche,
+        inline=False
+    )
 
     embed.add_field(
-    name="Niche",
-    value=niche,
-    inline=False)
+        name="📊 Market Analysis",
+        value=
+        f"Competition: Medium\n"
+        f"Saturation Score: {data['saturation']}/100\n"
+        f"Market Status: Profitable Entry Window",
+        inline=False
+    )
 
+    # Profit Section
     embed.add_field(
-    name="Market Analysis",
-    value=f"Competition: Medium\nSaturation Score: {data['saturation']}/100\nMarket Status: Profitable Entry Window",
-    inline=False)
+        name=divider,
+        value=
+        f"💰 Profit Analysis\n"
+        f"Cost: ${data['cost']}\n"
+        f"Sell Price: ${data['sell']}\n"
+        f"Profit Per Unit: ${data['profit']}\n"
+        f"Estimated Daily Sales: {data['daily']}\n"
+        f"Estimated Monthly Profit: ${data['monthly']}",
+        inline=False
+    )
 
+    # Supplier Links
     embed.add_field(
-    name="Profit Analysis",
-    value=f"Cost: ${data['cost']}\nSell Price: ${data['sell']}\nProfit Per Unit: ${data['profit']}\nEstimated Daily Sales: {data['daily']}\nEstimated Monthly Profit: ${data['monthly']}",
-    inline=False)
+        name=divider,
+        value=
+        f"🚚 Supplier Links\n"
+        f"[AliExpress]({data['ali']})\n"
+        f"[Alibaba]({data['alibaba']})\n"
+        f"[CJ Dropshipping]({data['cj']})",
+        inline=False
+    )
 
+    # Supplier Script
     embed.add_field(
-    name="Supplier Links",
-    value=f"[AliExpress]({data['ali']})\n[Alibaba]({data['alibaba']})\n[CJ Dropshipping]({data['cj']})",
-    inline=False)
+        name=divider,
+        value=
+        f"📨 Supplier Contact Script\n\n"
+        f"Hello,\n\n"
+        f"I'm interested in ordering **{data['product']}**.\n\n"
+        f"Please provide:\n"
+        f"• Bulk pricing\n"
+        f"• Private labeling options\n"
+        f"• Shipping times\n"
+        f"• Branding options\n\n"
+        f"I am looking for a long-term supplier partnership.",
+        inline=False
+    )
 
+    # TikTok Blueprint
     embed.add_field(
-    name="Supplier Contact Script",
-    value=f"Hello,\n\nI'm interested in ordering **{data['product']}**.\n\nPlease provide:\n• Bulk pricing\n• Private labeling options\n• Shipping times\n• Branding options\n\nI am looking for a long-term supplier partnership.",
-    inline=False)
+        name=divider,
+        value=
+        f"📈 TikTok Ad Blueprint\n\n"
+        f"Hook:\n\"{random.choice(hook_examples)}\"\n\n"
+        f"CTA:\n\"Get yours before it sells out\"\n\n"
+        f"Execution:\nShow problem → show product → transformation\n\n"
+        f"Posting:\n3–5 videos daily",
+        inline=False
+    )
 
+    # Store Plan
     embed.add_field(
-    name="TikTok Ad Blueprint",
-    value=f"Hook:\n\"{random.choice(hook_examples)}\"\n\nCTA:\n\"Get yours before it sells out\"\n\nExecution:\nShow problem → show product → transformation\n\nPosting:\n3–5 videos daily",
-    inline=False)
+        name=divider,
+        value=
+        f"🏪 Store Launch Plan\n\n"
+        f"Recommended Price: ${data['sell']}\n\n"
+        f"Target Audience:\nBuyers actively searching for solutions in this niche\n\n"
+        f"Positioning:\nPremium problem-solving product",
+        inline=False
+    )
 
+    # Brand Names
     embed.add_field(
-    name="Store Launch Plan",
-    value=f"Recommended Price: ${data['sell']}\nTarget Audience: Buyers actively searching for solutions in this niche\nPositioning: Premium problem-solving product",
-    inline=False)
+        name=divider,
+        value=
+        "🧠 Premium Brand Name Ideas\n\n"
+        + "\n".join(random.sample(BRANDS,5)),
+        inline=False
+    )
 
-    embed.add_field(
-    name="Premium Brand Name Ideas",
-    value="\n".join(random.sample(BRANDS,5)),
-    inline=False)
+    embed.add_field(name=divider,value=" ",inline=False)
 
     return embed
+
 
 # =========================
 # NEXT PRODUCT VIEW
