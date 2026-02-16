@@ -169,31 +169,30 @@ def generate_product(niche):
 
 def create_embed(niche,data):
 
-    divider = "━━━━━━━━━━━━━━━━━━━━━━"
+    divider = "\n━━━━━━━━━━━━━━━━━━━━━━\n"
 
     hook_examples = [
         "POV: This fixed my biggest problem instantly",
         "POV: I wish I found this sooner",
         "POV: This made everything easier",
-        "POV: This changed everything",
-        "POV: This solved my daily frustration"
+        "POV: This changed everything"
     ]
 
     embed = discord.Embed(
-        title=f"{divider}\n        🔥 WINNING PRODUCT REPORT\n{divider}",
+        title="🔥 WINNING PRODUCT REPORT",
+        description=f"{divider}",
         color=RED
     )
 
-    # Product Info
     embed.add_field(
         name="📦 Product",
-        value=data['product'],
+        value=f"{data['product']}{divider}",
         inline=False
     )
 
     embed.add_field(
         name="🏷️ Niche",
-        value=niche,
+        value=f"{niche}{divider}",
         inline=False
     )
 
@@ -202,39 +201,36 @@ def create_embed(niche,data):
         value=
         f"Competition: Medium\n"
         f"Saturation Score: {data['saturation']}/100\n"
-        f"Market Status: Profitable Entry Window",
+        f"Market Status: Profitable Entry Window"
+        f"{divider}",
         inline=False
     )
 
-    # Profit Section
     embed.add_field(
-        name=divider,
+        name="💰 Profit Analysis",
         value=
-        f"💰 Profit Analysis\n"
         f"Cost: ${data['cost']}\n"
         f"Sell Price: ${data['sell']}\n"
         f"Profit Per Unit: ${data['profit']}\n"
         f"Estimated Daily Sales: {data['daily']}\n"
-        f"Estimated Monthly Profit: ${data['monthly']}",
+        f"Estimated Monthly Profit: ${data['monthly']}"
+        f"{divider}",
         inline=False
     )
 
-    # Supplier Links
     embed.add_field(
-        name=divider,
+        name="🚚 Supplier Links",
         value=
-        f"🚚 Supplier Links\n"
         f"[AliExpress]({data['ali']})\n"
         f"[Alibaba]({data['alibaba']})\n"
-        f"[CJ Dropshipping]({data['cj']})",
+        f"[CJ Dropshipping]({data['cj']})"
+        f"{divider}",
         inline=False
     )
 
-    # Supplier Script
     embed.add_field(
-        name=divider,
+        name="📨 Supplier Contact Script",
         value=
-        f"📨 Supplier Contact Script\n\n"
         f"Hello,\n\n"
         f"I'm interested in ordering **{data['product']}**.\n\n"
         f"Please provide:\n"
@@ -242,45 +238,40 @@ def create_embed(niche,data):
         f"• Private labeling options\n"
         f"• Shipping times\n"
         f"• Branding options\n\n"
-        f"I am looking for a long-term supplier partnership.",
+        f"I am looking for a long-term supplier partnership."
+        f"{divider}",
         inline=False
     )
 
-    # TikTok Blueprint
     embed.add_field(
-        name=divider,
+        name="📈 TikTok Ad Blueprint",
         value=
-        f"📈 TikTok Ad Blueprint\n\n"
         f"Hook:\n\"{random.choice(hook_examples)}\"\n\n"
         f"CTA:\n\"Get yours before it sells out\"\n\n"
         f"Execution:\nShow problem → show product → transformation\n\n"
-        f"Posting:\n3–5 videos daily",
+        f"Posting:\n3–5 videos daily"
+        f"{divider}",
         inline=False
     )
 
-    # Store Plan
     embed.add_field(
-        name=divider,
+        name="🏪 Store Launch Plan",
         value=
-        f"🏪 Store Launch Plan\n\n"
         f"Recommended Price: ${data['sell']}\n\n"
         f"Target Audience:\nBuyers actively searching for solutions in this niche\n\n"
-        f"Positioning:\nPremium problem-solving product",
+        f"Positioning:\nPremium problem-solving product"
+        f"{divider}",
         inline=False
     )
 
-    # Brand Names
     embed.add_field(
-        name=divider,
-        value=
-        "🧠 Premium Brand Name Ideas\n\n"
-        + "\n".join(random.sample(BRANDS,5)),
+        name="🧠 Premium Brand Name Ideas",
+        value="\n".join(random.sample(BRANDS,5)),
         inline=False
     )
-
-    embed.add_field(name=divider,value=" ",inline=False)
 
     return embed
+    
 
 
 # =========================
